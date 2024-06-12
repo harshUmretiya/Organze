@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		
+		function calc() {
+			var cdate=new Date(document.getElementById('cdate').value);
+			var bdate=new Date(document.getElementById('bdate').value);
+			var milisecond=cdate - bdate;
+			var seconds=Math.floor(milisecond/1000);
+			var minute=Math.floor(seconds/60);
+			var hour=Math.floor(minute/60);
+			var day=Math.floor(hour/24);
+			var week=Math.floor(day/7);
+			var month=Math.floor(week * 0.229984);
+			var year=Math.floor(month/12);
+
+
+			document.getElementById('mili').innerHTML=milisecond;
+			document.getElementById('sec').innerHTML=seconds;
+			document.getElementById('min').innerHTML=minute;
+			document.getElementById('hour').innerHTML=hour;
+			document.getElementById('day').innerHTML=day;
+			document.getElementById('week').innerHTML=week;
+			document.getElementById('month').innerHTML=month;
+			document.getElementById('year').innerHTML=year;
+		}
+	</script>
+</head>
+<body>
+	<div>
+	<input type="text" name=""><br>
+	<input type="date" name="" id="cdate"><br>
+	<input type="date" name="" id="bdate"><br>
+	<button onclick="calc()">age calculation</button>
+	</div>
+	<div>
+		<p>milisecond -><span id="mili"></span></p>
+		<p>second -><span id="sec"></span></p>
+		<p>minute -><span id="min"></span></p>
+		<p>hour -><span id="hour"></span></p>
+		<p>day -><span id="day"></span></p>
+		<p>week -><span id="week"></span></p>
+		<p>month -><span id="month"></span></p>
+		<p>year -><span id="year"></span></p>
+	</div>
+
+</body>
+</html>
+<script type="text/javascript">
+	var date= new Date();
+
+	var day=date.getDate();
+	var month=date.getMonth() + 1;
+	var year=date.getFullYear();
+
+	if(month < 10) month="0" + month;
+	if(day < 10) day ="0" + day;
+
+	var today = year + "-" + month + "-" + day;
+	document.getElementById("cdate").value = today;
+</script>
